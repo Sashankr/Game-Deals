@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import useSWR from 'swr';
 
+
+const fetcher = (...args) => fetch(...args).then((response)=> response.json())
 
 function App() {
 
   const [gameTitle, setGameTitle] = useState('')
   const [searchedGames, setSearchedGames] = useState([]);
-  const [gameDeals, setGameDeals] = useState([])
+
+  const {data,error} = useSWR('https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=20&pageSize=3',fetcher)
 
   const searchGame = () => {
     fetch(`https://www.cheapshark.com/api/1.0/games?title=${gameTitle}&limit=3`)
@@ -15,19 +19,10 @@ function App() {
         setSearchedGames(data)
       })
   }
-
+  
   const handleInputChange = (event) => {
     setGameTitle(event.target.value)
   }
-
-  useEffect(() => {
-    fetch(`https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=20&pageSize=3`)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setGameDeals(data);
-      })
-  }, [])
 
   return (
     <div className="App">
@@ -53,7 +48,7 @@ function App() {
 
       <h1>Latest Deals <span role="img" aria-label="fire emoji"> 🔥 </span></h1>
       <div className="deals-section">
-        {gameDeals.map((game, index) => {
+        {data && data.map((game, index) => {
           return (
             <div key={index} className="game">
               <h3>{game.title}</h3>
