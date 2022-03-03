@@ -1,3 +1,52 @@
 .App {
   text-align: center;
 }
+
+
+.search-section{
+  flex: 50%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: cadetblue;
+  color: #fff;
+  padding: 1rem 0 2rem;
+  margin-bottom: 1rem;
+}
+
+.search-section input{
+  padding: 15px 10px;
+  width: 250px;
+  border: unset;
+  outline: unset;
+  margin: 1rem 0;
+  border-radius: 5px;
+
+}
+
+.search-section button{
+  padding: 15px 10px;
+  width: 250px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: unset;
+  outline: unset;
+  transition: 0.4s ease;
+  border-radius: 5px;
+}
+
+.search-section button:hover{
+  background: #48cae4;
+  cursor: pointer;
+
+}
+
+.deals-section{
+  width: 100%;
+  flex: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

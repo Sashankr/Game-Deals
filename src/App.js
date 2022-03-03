@@ -10,7 +10,7 @@ function App() {
       </div>
 
       <div className="deals-section">
-
+        <h1>Latest Deals <span role="img" aria-label="fire emoji"> 🔥 </span></h1>
       </div>
     </div>
   );
