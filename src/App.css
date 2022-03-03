@@ -38,8 +38,9 @@
 }
 
 .search-section button:hover{
-  background: #48cae4;
+  background: #343a40;
   cursor: pointer;
+  color: #fff;
 
 }
 
