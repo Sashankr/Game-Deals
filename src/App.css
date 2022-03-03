@@ -51,3 +51,7 @@
   align-items: center;
   flex-direction: column;
 }
+
+.games{
+  margin-top: 1rem;
+}
