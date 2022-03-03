@@ -31,7 +31,9 @@ function App() {
         {searchedGames.map((game,index)=>{
           return (
             <div key={index} className="game">
-              {game.external}
+              <h4>{game.external}</h4>
+              <img src={game.thumb} alt={game.external} />
+              <small>{game.cheapest}</small>
             </div>
           )
         })}
